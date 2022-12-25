@@ -1,0 +1,6 @@
+website/database.db
+website/__pycache__/
+venv/
+__pycache__/
+.direnv/
+.env

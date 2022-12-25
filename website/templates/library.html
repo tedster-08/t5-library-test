@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %} Troop Library {% endblock %}
+{% block content %}
+<h1 id="heading1">Troop 5 Library</h1>
+<table id="books-table">
+    <tr id="table-headers">
+        <th> Merit Badge </th>
+        <th> Available</th>
+        <th> Check Out </th>
+        <th> Counselors </th>
+    </tr>
+    {% for book in books %}
+    <tr class="table-row">
+        <td class="table-cell">
+            {{book.title}}
+            {% if book.is_eagle_required %}
+            <span class="flag" id="eaglereq" title="Eagle Required"><i class="fa-solid fa-feather-pointed"></i></span>
+            {% endif %}
+            {% if not book.is_up_to_date %}
+            <span class="flag" id="indate" title="Out of Date"><i class="fa-solid fa-clock-rotate-left"></i></span>
+            {% endif %}
+        </td>'
+
+        <td>
+            {% if book.checked_out %} &times;
+            {% else %} &checkmark;
+            {% endif %}
+        </td>
+        <td class="table-cell"> <a href="#"> Check Out </a></td>
+        <td class="table-cell"> <a href="mailto:scoutmaster@troop5.us"> Get a Counselor</a></td>
+    </tr>
+    {% endfor %}
+</table> <br />
+<a href="/add-book"> &plus; </a>
+{% endblock %}

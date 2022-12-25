@@ -1,0 +1,138 @@
+:root {
+  --red: #cf2e2e;
+  --white: #fffffa;
+}
+body {
+  margin: 0;
+}
+
+.top {
+  width: 100vw;
+  min-height: 2.5em;
+  background-color: var(--red);
+  position: sticky;
+  top: 0;
+}
+
+.troop5 {
+  font-size: 3rem;
+  /* font-size: clamp(3em, 12.5vw, 5em); */
+  font-family: "Alegreya Sans", sans-serif;
+  font-weight: bold;
+  color: var(--white);
+  /* display: flex; */
+  /* justify-content: center; */
+  text-decoration: none;
+  position: relative;
+  z-index: 150;
+  cursor: pointer;
+}
+
+.menu-button {
+  background-color: transparent;
+  color: var(--white);
+  font-size: 2.5em;
+  border: none;
+  padding: 0.25em 0.5em;
+  cursor: pointer;
+}
+
+#menu-close {
+  color: var(--red);
+}
+
+#menu {
+  opacity: 0;
+  position: absolute;
+  background-color: var(--white);
+  top: 0;
+  left: 0;
+  min-height: 100%;
+  min-width: 25vw;
+  z-index: 10;
+  transition-property: opacity;
+  transition-duration: 0.5s;
+}
+
+#links {
+  font-size: 2em;
+  font-family: "Alegreya Sans", sans-serif;
+  color: var(--red);
+  padding: 0.5em;
+}
+
+a {
+  color: var(--red);
+}
+
+#overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  transition-property: opacity;
+  transition-duration: 0.5s;
+}
+
+.custom-header {
+  width: 100vw;
+  height: auto;
+}
+
+/* #content { */
+/*   display: flex; */
+/*   justify-content: center; */
+/* } */
+
+p {
+  font-size: 1.25rem;
+  font-family: "Alegreya Sans";
+  margin: 0 10vw;
+}
+
+#heading1 {
+  font-size: 3rem;
+  font-family: "Alegreya Sans";
+  margin: 0.5em;
+  display: flex;
+  justify-content: center;
+}
+
+#add-book-form {
+  display: flex;
+  justify-content: center;
+  padding: 0.5em;
+}
+
+tr {
+  border-bottom: 1px solid black;
+}
+
+.table-cell {
+  padding: 1em;
+}
+
+.table-cell:nth-child(even) {
+  background-color: rgba(207, 46, 46, 0.15);
+}
+.table-cell:nth-child(odd) {
+  background-color: rgba(150, 150, 150, 0.15);
+}
+
+#books-table {
+  display: flex;
+  justify-content: center;
+}
+
+th {
+  font-size: 1.25em;
+  font-family: "Alegreya Sans";
+  margin: 0.5em;
+}
+
+#table-headers {
+  border-bottom: 2px solid black;
+}

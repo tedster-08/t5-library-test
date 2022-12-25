@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="icon" type="image/x-icon" href="/static/images/favicon.png" />
+    <script src="/static/script.js"></script>
+    <title>{% block title %}Troop 5 {% endblock %}</title>
+    <script
+      src="https://kit.fontawesome.com/ab518c4c00.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="nav">
+      <div class="top">
+        <button class="menu-button" id="menu-open" onclick="toggleMenu();">
+          &equiv;
+        </button>
+        <a href="/" class="troop5"> Troop 5 </a>
+        <!-- <h1 class="troop5">Troop 5</h1> -->
+      </div>
+      <nav id="menu" style="z-index: -15">
+        <button class="menu-button" id="menu-close" onclick="toggleMenu();">
+          &equiv;
+        </button>
+        <br />
+        <div id="links">
+          <a href="#">Home</a> <br />
+          <a href="#">About</a> <br />
+          <a href="#">Calendar</a> <br />
+          <a href="#">Contact</a> <br />
+          <a href="#">Get Involved</a> <br />
+          <a href="/library">Library</a> <br />
+        </div>
+      </nav>
+    </div>
+    <div id="content">
+      <div id="overlay" style="z-index: -10"></div>
+      {% block content %} {% endblock %}
+    </div>
+  </body>
+</html>
