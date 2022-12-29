@@ -7,3 +7,4 @@ class MeritBadgePamphlet(db.Model):
     is_eagle_required = db.Column(db.Boolean())
     is_up_to_date = db.Column(db.Boolean())
     is_checked_out = db.Column(db.Boolean())
+    checked_out_to = db.Column(db.String(256))

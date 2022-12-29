@@ -1,4 +1,5 @@
-from flask import render_template, Blueprint, request
+from flask import render_template, Blueprint, request, jsonify
+import json
 from .models import MeritBadgePamphlet
 from . import db
 
@@ -13,7 +14,7 @@ def home():
 @views.route("/library")
 def library():
     books = MeritBadgePamphlet.query.order_by(
-        MeritBadgePamphlet.title.desc()).all()
+        MeritBadgePamphlet.title).all()
     print(books)
     return render_template("library.html", books=books)
 
@@ -52,6 +53,25 @@ def add_book():
         db.session.add(new_pamphlet)
         db.session.commit()
     return render_template("add_book.html")
+
+
+@views.route("/check-out", methods=["POST"])
+def check_out():
+    data = json.loads(request.data)
+    book = MeritBadgePamphlet.query.get(data["id"])
+    if book:
+        book.is_checked_out = True
+        book.checked_out_to = data["name"]
+        db.session.commit()
+        print(f"Checked out {book.title} to {data['name']}.")
+    return jsonify({})
+
+
+# @views.route("/librarian")
+# def librarian():
+#     books = MeritBadgePamphlet.query.filter_by(is_checked_out=True).all()
+#     print(books)
+#     return render_template("librarian.html", checked_out_books=books)
 
 
 def _shutdown_server():
