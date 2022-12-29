@@ -67,11 +67,23 @@ def check_out():
     return jsonify({})
 
 
-# @views.route("/librarian")
-# def librarian():
-#     books = MeritBadgePamphlet.query.filter_by(is_checked_out=True).all()
-#     print(books)
-#     return render_template("librarian.html", checked_out_books=books)
+@views.route("/check-in", methods=["POST"])
+def check_in():
+    data = json.loads(request.data)
+    book = MeritBadgePamphlet.query.get(data["id"])
+    if book:
+        book.is_checked_out = False
+        book.checked_out_to = ""
+        db.session.commit()
+        print(f"Checked in {book.title}")
+    return jsonify({})
+
+
+@views.route("/librarian")
+def librarian():
+    books = MeritBadgePamphlet.query.filter_by(is_checked_out=True).all()
+    print(books)
+    return render_template("librarian.html", checked_out_books=books)
 
 
 def _shutdown_server():
@@ -86,3 +98,8 @@ def shutdown_server_from_url():
     print("Shutdown URL accessed, shutting down!")
     _shutdown_server()
     return "Server shutting down!"
+
+
+@views.route("/libauth", methods=["POST"])
+def libauth():
+    return jsonify({"text": "jeeb"})

@@ -67,12 +67,6 @@ a {
   cursor: pointer;
 }
 
-a:focus {
-  border: 2px solid var(--red);
-  border-radius: 0.5em;
-  padding: 0.5em;
-}
-
 #overlay {
   position: absolute;
   top: 0;
@@ -131,7 +125,7 @@ tr {
   background-color: rgba(150, 150, 150, 0.2);
 }
 
-#books-table {
+.books-table {
   display: flex;
   justify-content: center;
 }
@@ -142,7 +136,7 @@ th {
   margin: 0.5em;
 }
 
-#table-headers {
+.table-headers {
   border-bottom: 2px solid black;
 }
 
@@ -180,4 +174,22 @@ th {
   color: #888;
   text-decoration: underline;
   cursor: not-allowed;
+}
+
+#librarian-login-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--white);
+  z-index: 100;
+
+  top: 0;
+  left: 0;
+}
+
+#librarian-login-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
