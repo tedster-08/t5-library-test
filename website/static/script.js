@@ -57,6 +57,6 @@ let librarianAuth = () => {
   let overlay = document.getElementById("librarian-login-overlay");
   let entered_passwd = document.getElementById("librarian-password").value;
   if (entered_passwd == "jeeb") {
-    overlay.style.display = "none";
+    window.location.href = "/librarian";
   }
 };

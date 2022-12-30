@@ -1,0 +1,12 @@
+{% extends "base.html" %} {% block title %} Troop Library {% endblock %} {% block content %}
+<div id="librarian-login-overlay">
+  <div id="librarian-login-content">
+    <h1>Authenticate to Manage Library</h1>
+    <br />
+    <label for="librarian-password">Password:</label>
+    <input type="password" id="librarian-password" name="librarian-password" />
+    <button onclick="librarianAuth();">Go</button>
+    <button onclick="returnHome()">Return Home</button>
+  </div>
+</div>
+{% endblock %}

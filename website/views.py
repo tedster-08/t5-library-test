@@ -73,7 +73,7 @@ def check_in():
     book = MeritBadgePamphlet.query.get(data["id"])
     if book:
         book.is_checked_out = False
-        book.checked_out_to = ""
+        book.checked_out_to = None
         db.session.commit()
         print(f"Checked in {book.title}")
     return jsonify({})
@@ -100,6 +100,6 @@ def shutdown_server_from_url():
     return "Server shutting down!"
 
 
-@views.route("/libauth", methods=["POST"])
+@views.route("/libauth")
 def libauth():
-    return jsonify({"text": "jeeb"})
+    return render_template("libauth.html")
