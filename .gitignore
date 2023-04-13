@@ -5,3 +5,4 @@ __pycache__/
 .direnv/
 .env
 .vercel
+log.txt
